@@ -59,6 +59,10 @@ export COMMANDLINE_ARGS="--xformers --share"
 export ACCELERATE="True"
 ```
 
+If you want to use the WebUI API (you can see the endpoints by adding `/docs` to the end of WebUI links), add `--api` to `COMMANDLINE_ARGS`.
+
+If you want to be able to configure extensions within the WebUI when `--share` is enabled, add `--enable-insecure-extension-access` to `COMMANDLINE_ARGS`.
+
 ### Set up venv
 
 Venv allows for persistent storage (we install stuff here so it is kept installed in venv).
@@ -135,3 +139,7 @@ The command line will eventually output `Running on public URL:` followed by a u
 
 >[!TIP]
 >This final section is reproduced inside `launcher.ipynb`, so you don't need to come back to this repo if you forget how to run the program.
+
+## Note about the API
+
+The notebook automatically shuts down after 1 hour due to inactivity, even if you're using the API (so periodically pinging it doesn't help). To prevent this, the additionally upload and run the included `looper.ipynb` script anytime you're running `launcher.ipynb`.
